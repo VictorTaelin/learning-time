@@ -3,7 +3,7 @@
 
 Se você é desenvolvedor Swift muito provavelmente conhece o tipo `Result`. Ele é utiliza a feature de [generics](https://docs.swift.org/swift-book/LanguageGuide/Generics.html) do Swift, e nos auxilia a lidar com requisições que podem dar certo - nos trazendo um valor de retorno, ou errado, resultando em um erro.
 
-Ao realizar operações é bem comum que tenhamos no mínimo dois outputs; `if-else`, `is nil or not` e `success-failure` nos são bem familiares. Você já parou pra pensar no porquê essa estrutura funciona tão bem? 
+Ao realizar operações é bem comum que tenhamos no mínimo dois outputs; `if-else`, `is nil or not` e `success-failure` nos são bem familiares. Você já parou pra pensar em porquê essa estrutura funciona tão bem? 
 
 Para o caso `success-failure`, temos a assinatura de método:
 ```
@@ -17,7 +17,7 @@ enum Result<Success, Failure> where Failure : Error {
     case failure(Failure)
 }
  ```
-O construtor `succcess` está associado à um tipo `Success` (Tipo Genérico), permitindo que essa estrutura seja flexível e reutilizável por qualquer outro tipo, você define. Já o construtor `failure` demanda a conformidade com o tipo `Error`; qualquer tipo que conforme com esse protocolo representa um erro. Apesar dessa pequena limitação, você pode tanto utilizar os tipos de `Error` do Swift ou criar os seus. 
+O construtor `succcess` está associado a um tipo `Success` (Tipo Genérico), permitindo que essa estrutura seja flexível e reutilizável por qualquer outro tipo, você define. Já o construtor `failure` demanda a conformidade com o tipo `Error`; qualquer tipo que conforme com esse protocolo representa um erro. Apesar dessa pequena limitação, você pode tanto utilizar os tipos de `Error` do Swift quanto criar os seus. 
 ```swift
 load { [weak self] result in
     switch result {
@@ -81,4 +81,4 @@ sugestões de leitura sobre o assunto:
 - [Point Free - The algebra of enums](https://www.pointfree.co/episodes/ep4-algebraic-data-types#t706)
 - [Some types in Kind language](https://github.com/Kindelia/Kind#some-types)
 
-Caso queira ir além e se aprofundar no uso de `Enums`, recomendo estudar sobre Algebraic Data Type (ADT).
+Caso queira ir além e se aprofundar no uso de `Enums`, recomendo estudar sobre Algebraic Data Types (ADTs).
